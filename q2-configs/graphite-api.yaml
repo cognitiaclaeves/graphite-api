@@ -1,0 +1,6 @@
+
+search_index: /opt/graphite/index
+whisper:
+  directories:
+    - /opt/graphite/storage/whisper
+time_zone: 'US/Central'

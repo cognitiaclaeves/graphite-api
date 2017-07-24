@@ -1,3 +1,30 @@
+
+Forked from brutasse/graphite-api.
+
+Part of a project to buid a grafana stack with single-use containers.
+
+Single use containers make it easier to switch out the components:
+
+ - carbon-c-relay instead of carbon-relay
+ - interesting statsd alternatives:
+ -- statsite ( C implementation )
+ -- statsdaemon ( go )
+ -- gostatsd ( go )
+
+Build:
+
+     sudo docker build -t brutasse-graphite-api:2-dbg .
+
+
+
+To start the standard grafana container:
+
+     sudo docker run -it --name grafana --rm -p 3000:3000 --link graphite:graphite grafana/grafana
+
+(All other associated containers include run scripts.)
+
+====
+
 Graphite-API
 ============
 
