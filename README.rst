@@ -16,10 +16,15 @@ Build:
      sudo docker build -t brutasse-graphite-api:2-dbg .
 
 
-
 To start the standard grafana container:
 
      sudo docker run -it --name grafana --rm -p 3000:3000 --link graphite:graphite grafana/grafana
+
+
+For those not keep on losing the work they put into grafana, mount it with a data volume:
+
+     sudo docker run -it --name grafana --rm -p 3000:3000 --link graphite:graphite -v grafana-data:/var/lib/grafana:z grafana/grafana
+
 
 (All other associated containers include run scripts.)
 

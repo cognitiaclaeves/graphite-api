@@ -19,8 +19,13 @@ RUN apt-get install -y build-essential python-dev libffi-dev libcairo2-dev pytho
 
 RUN pip install gunicorn graphite-api[sentry,cyanite]
 
-ONBUILD ADD graphite-api.yaml /etc/graphite-api.yaml
-ONBUILD RUN chmod 0644 /etc/graphite-api.yaml
+
+ADD q2-configs/graphite-api.yaml /etc/graphite-api.yaml
+RUN chmod 0644 /etc/graphite-api.yaml
+
+#Add the graphite-api.yaml file when using this image as a base image.
+#ONBUILD ADD q2-configs/graphite-api.yaml /etc/graphite-api.yaml
+#ONBUILD RUN chmod 0644 /etc/graphite-api.yaml
 
 EXPOSE 8000
 
